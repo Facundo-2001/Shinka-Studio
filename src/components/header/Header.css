@@ -1,0 +1,35 @@
+.header-container {
+  background-color: #ffffff;
+  color: #333333;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-logo-img {
+  height: 150px; /* Tamaño aumentado del logo */
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .header-logo-img {
+    height: 60px; /* Tamaño más pequeño en celulares para no ocupar tanta pantalla */
+  }
+}

@@ -1,0 +1,25 @@
+.footer-container {
+  background-color: var(--verde-pino, #0F5132);
+  color: #e5e7eb;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.footer-icon-link {
+  color: #e5e7eb;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-flex;
+}
+
+.footer-icon-link:hover {
+  color: var(--verde-azulado, #78A2A5);
+  transform: translateY(-3px);
+}

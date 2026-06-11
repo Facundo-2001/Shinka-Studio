@@ -1,0 +1,36 @@
+/* Estilos base compartidos */
+.btn {
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Variante: Primary (Llamado a la acción) */
+.btn-primary {
+  background-color: var(--azul-cobalto);
+  color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 2px solid var(--azul-cobalto); /* Borde del mismo color para igualar el tamaño con el outline */
+}
+
+.btn-primary:hover {
+  background-color: var(--azul-cobalto-hover);
+  border-color: var(--azul-cobalto-hover);
+}
+
+/* Variante: Outline (Secundario) */
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--verde-pino);
+  color: #ffffff; /* Si tu fondo deja de ser oscuro, puedes cambiar esto a var(--verde-pino) */
+}
+
+.btn-outline:hover {
+  background-color: var(--verde-pino);
+  color: #ffffff;
+}

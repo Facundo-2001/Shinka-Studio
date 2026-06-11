@@ -1,0 +1,16 @@
+/* =========================================
+   Variables Globales - Paleta de Colores
+========================================= */
+:root {
+  --verde-pino: #0F5132;
+  --azul-petroleo: #005F73;
+  --verde-azulado: #78A2A5;
+  --azul-cobalto: #0047AB;
+  --azul-cobalto-hover: #003380; /* Tono más oscuro para el hover */
+}
+
+/* Reseteo básico de estilos para todo el proyecto */
+body {
+  margin: 0;
+  padding: 0;
+}

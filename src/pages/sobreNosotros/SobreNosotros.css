@@ -1,0 +1,38 @@
+.sobre-nosotros-section {
+  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+}
+
+.sobre-nosotros-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem;
+  border-radius: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.sobre-nosotros-title {
+  font-size: 2.5rem;
+  color: var(--azul-petroleo, #005F73);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.sobre-nosotros-text {
+  font-size: 1.125rem;
+  color: #4b5563;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.sobre-nosotros-text:last-child {
+  margin-bottom: 0;
+}
+
+.sobre-nosotros-highlight {
+  color: var(--verde-pino, #0F5132);
+  font-weight: 700;
+}

@@ -1,0 +1,78 @@
+.home-hero {
+  padding: 5rem 1.5rem;
+  background-color: #ffffff;
+  min-height: calc(100vh - 200px); /* Ocupa casi toda la pantalla descontando header y footer */
+  display: flex;
+  align-items: center;
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column-reverse; /* En móvil, imagen arriba y texto abajo */
+  align-items: center;
+  gap: 4rem;
+}
+
+@media (min-width: 992px) {
+  .home-container {
+    flex-direction: row; /* En PC, uno al lado del otro */
+    justify-content: space-between;
+  }
+}
+
+.home-content {
+  flex: 1;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  .home-content {
+    text-align: left;
+    padding-right: 2rem;
+  }
+}
+
+.home-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--azul-petroleo);
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+}
+
+@media (min-width: 768px) {
+  .home-title {
+    font-size: 3.5rem;
+  }
+}
+
+.highlight-sales {
+  color: var(--verde-azulado); /* Usamos el verde azulado para resaltar */
+}
+
+.home-description {
+  font-size: 1.125rem;
+  color: #4b5563; /* Gris profesional */
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.home-actions {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .home-actions {
+    justify-content: flex-start;
+  }
+}
+
+.home-image {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
