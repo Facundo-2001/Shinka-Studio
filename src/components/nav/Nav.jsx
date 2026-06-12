@@ -21,7 +21,9 @@ export default function Nav() {
         <span className={`bar ${isOpen ? 'open' : ''}`}></span>
       </div>
       <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-        <li><NavLink to="/" onClick={closeMenu}>Inicio</NavLink></li>
+        <li>
+          <NavLink to="/" className="nav-btn-inicio" onClick={closeMenu}>Inicio</NavLink>
+        </li>
         <li><NavLink to="/servicios" onClick={closeMenu}>Servicios</NavLink></li>
         <li><NavLink to="/sobre-nosotros" onClick={closeMenu}>Sobre Nosotros</NavLink></li>
         <li><NavLink to="/contacto" onClick={closeMenu}>Contacto</NavLink></li>

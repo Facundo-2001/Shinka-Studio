@@ -14,3 +14,18 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* =========================================
+   Botón Destacado de Navegación (Inicio)
+========================================= */
+.nav-btn-inicio {
+  background-color: var(--verde-pino);
+  color: #ffffff !important; /* Fuerza el color blanco sobreescribiendo el color por defecto de los links */
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn-inicio:hover {
+  background-color: var(--verde-azulado); /* Efecto hover para que cambie un poco el tono al pasar el mouse */
+}

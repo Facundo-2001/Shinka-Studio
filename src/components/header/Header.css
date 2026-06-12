@@ -9,27 +9,85 @@
 }
 
 .header-content {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  position: relative; /* CRUCIAL para que el posicionamiento absoluto funcione relativo a esto */
+  min-height: 60px;   /* Define la altura fija que quieres que mantenga tu header */
 }
 
 .header-logo-link {
+  position: absolute;
+  left: 0;           /* Lo alinea a la izquierda del content */
+  top: 50%;          /* Lo centra verticalmente */
+  transform: translateY(-50%); /* Truco clásico para centrado vertical perfecto */
   display: flex;
   align-items: center;
   text-decoration: none;
+  z-index: 1010;     /* Para asegurarte de que quede por encima de todo */
 }
 
+/* Nota: En la maqueta original el logo se ve un poco más compacto, 
+   si notas que 150px es demasiado alto, puedes bajarlo a 60px-80px */
 .header-logo-img {
-  height: 150px; /* Tamaño aumentado del logo */
+  height: 160px; /* Probá con 90px o 100px para ver cómo sobresale */
   width: auto;
   transition: height 0.3s ease;
 }
 
+/* ==========================================
+   NUEVAS REGLAS PARA LA NAVEGACIÓN (MENÚ)
+   ========================================== */
+
+.header-nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem; /* Espaciado limpio entre cada opción */
+}
+
+.header-nav-link {
+  text-decoration: none;
+  color: #555555; /* Gris intermedio para los enlaces inactivos */
+  font-family: sans-serif; /* Cambia por tu tipografía si usas otra */
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 1rem; /* Espaciado interno para la forma de botón */
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover sutil para las opciones inactivas */
+.header-nav-link:hover {
+  color: #0d5f3a; 
+}
+
+/* ESTADO ACTIVO: El botón verde para HOME */
+.header-nav-link.active {
+  background-color: #0d5f3a; /* El verde característico */
+  color: #ffffff;            /* Texto blanco */
+  border-radius: 4px;        /* Bordes redondeados sutiles */
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
 @media (max-width: 768px) {
+  .header-content {
+    justify-content: flex-end; /* Mueve el menú hamburguesa a la derecha */
+  }
+
   .header-logo-img {
-    height: 60px; /* Tamaño más pequeño en celulares para no ocupar tanta pantalla */
+    height: 100px; 
+  }
+  
+  /* Oculta o colapsa el menú en móviles (puedes cambiarlo luego por un menú hamburguesa) */
+  .header-nav {
+    display: none; 
   }
 }
