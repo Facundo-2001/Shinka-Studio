@@ -27,7 +27,7 @@
 .btn-outline {
   background-color: transparent;
   border: 2px solid var(--verde-pino);
-  color: #ffffff; /* Si tu fondo deja de ser oscuro, puedes cambiar esto a var(--verde-pino) */
+  color: #000000; /* Si tu fondo deja de ser oscuro, puedes cambiar esto a var(--verde-pino) */
 }
 
 .btn-outline:hover {

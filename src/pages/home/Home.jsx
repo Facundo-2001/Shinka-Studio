@@ -2,33 +2,77 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Boton from '../../components/boton/Boton.jsx';
 import './Home.css'
+import Carrusel from '../../components/carrusel/Carrusel.jsx';
+
+const heroImages = [
+  '/images/home1.jpg',
+  '/images/home2.jpg',
+  '/images/home3.jpg'
+]
 
 const Home = () => {
   return (
-    <section className="home-hero">
-      <div className="home-container">
-        <div className="home-content">
-          <h1 className="home-title">
-            Impulsamos las <span className="highlight-sales">Ventas</span> y el Crecimiento de tu Empresa
-          </h1>
-          <p className="home-description">
-            Transformamos tu presencia digital en una máquina de generar clientes. Creamos soluciones tecnológicas estratégicas, diseñadas específicamente para multiplicar tus conversiones y llevar tu negocio al siguiente nivel.
-          </p>
-          <div className="home-actions">
-            <Link to="/servicios" style={{ textDecoration: 'none' }}>
-              <Boton variant="primary">Nuestros Servicios</Boton>
-            </Link>
+    <div className="home-container">
+      <main>
+        {/* SECCIÓN HERO */}
+        <section className="hero-section">
+          <div className="hero-content">
+            <h1>TRANSFORMANDO TU HUELLA DIGITAL</h1>
+            <p>Creamos soluciones digitales para ayudarte a llevar tu negocio al siguiente nivel</p>
+            
+            <div className="hero-buttons">
+              <Link to="/servicios" style={{ textDecoration: 'none' }}>
+                <Boton variant="outline">SERVICIOS</Boton>
+              </Link>
+              <Link to="/sobre-nosotros" style={{ textDecoration: 'none' }}>
+                <Boton variant="outline">NOSOTROS</Boton>
+              </Link>
+              <Link to="/contacto" style={{ textDecoration: 'none' }}>
+                <Boton variant="primary">QUIERO UNA WEB &gt;</Boton>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="home-image-wrapper">
-          <img 
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" 
-            alt="Gráfico de crecimiento de ventas y análisis de datos" 
-            className="home-image"
-          />
-        </div>
-      </div>
-    </section>
+
+          {/* Contenedor del Carrusel a la derecha */}
+          <div className="hero-carrusel">
+            <Carrusel images={heroImages} />
+          </div>
+        </section>
+
+        {/* SECCIÓN DE SERVICIOS (Las 3 tarjetas) */}
+        <section className="services-section">
+          
+          <article className="service-card">
+            <div className="card-image bg-landing">
+              <div className="card-info">
+                <h3>Landing Page</h3>
+                <p>Páginas de una sola vista</p>
+              </div>
+            </div>
+          </article>
+
+          <article className="service-card">
+            <div className="card-image bg-ecommerce">
+              <div className="card-info">
+                <h3>E-Commerce</h3>
+                <p>Tiendas online completas y escalables</p>
+              </div>
+            </div>
+          </article>
+
+          <article className="service-card">
+            <div className="card-image bg-systems">
+              <div className="card-info">
+                <h3>Sistemas Completos</h3>
+                <p>Aplicaciones web complejas y portales a medida</p>
+              </div>
+            </div>
+          </article>
+
+        </section>
+      </main>
+      
+    </div>
   );
 };
 
