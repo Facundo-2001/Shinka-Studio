@@ -1,6 +1,8 @@
 .servicios-section {
   padding: 5rem 1.5rem;
-  background-color: #f8f9fa; /* Fondo gris muy claro para resaltar las tarjetas blancas */
+  background-image: url('/images/fondo2.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .servicios-container {
@@ -15,14 +17,14 @@
 
 .servicios-title {
   font-size: 2.5rem;
-  color: var(--azul-petroleo);
+  color: #ffffff ;
   margin-bottom: 1.25rem;
   font-weight: 700;
 }
 
 .servicios-description {
   font-size: 1.125rem;
-  color: #4b5563; /* Gris medio para el texto */
+  color: #00ff22; 
   max-width: 48rem;
   margin: 0 auto;
   line-height: 1.6;
@@ -43,7 +45,7 @@
 }
 
 .servicio-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.50);
   border-radius: 1rem;
   padding: 2.5rem 2rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
@@ -53,6 +55,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  backdrop-filter: blur(6px);
 }
 
 .servicio-card:hover {
@@ -75,13 +78,13 @@
 
 .servicio-card-title {
   font-size: 1.5rem;
-  color: var(--azul-petroleo);
+  color: #000000;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .servicio-card-text {
-  color: #6b7280;
+  color: #000000;
   line-height: 1.6;
   font-size: 1rem;
 }

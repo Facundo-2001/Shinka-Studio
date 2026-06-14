@@ -1,6 +1,8 @@
 .sobre-nosotros-section {
+  background-image: url('/images/fondo.png');
   padding: 5rem 1.5rem;
-  background-color: #ffffff;
+  background-size: cover;
+  background-position: center;
 }
 
 .sobre-nosotros-container {
@@ -9,9 +11,10 @@
   text-align: center;
   padding: 3rem;
   border-radius: 1rem;
-  background-color: #f8f9fa;
+  background-color: rgba(248, 249, 250, 0.85);
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(4px);
 }
 
 .sobre-nosotros-title {

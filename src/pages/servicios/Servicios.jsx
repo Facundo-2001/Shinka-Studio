@@ -8,18 +8,11 @@ export default function Servicios() {
     <section className="servicios-section" id="servicios">
       <div className="servicios-container">
         
-        <div className="servicios-header">
-          <h2 className="servicios-title">Desarrollo a Medida para tu Crecimiento</h2>
-          <p className="servicios-description">
-            No usamos plantillas genéricas. Nos encargamos de crear soluciones digitales estratégicas y personalizadas que se adaptan exactamente a las necesidades y objetivos de tu empresa.
-          </p>
-        </div>
-
         <div className="servicios-grid">
           {/* Tarjeta 1: Landing Pages */}
           <div className="servicio-card card-landing">
             <img 
-              src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=800&auto=format&fit=crop" 
+              src="/images/landingexample.jpg" 
               alt="Diseño de Landing Pages" 
               className="servicio-img"
             />
@@ -32,7 +25,7 @@ export default function Servicios() {
           {/* Tarjeta 2: E-commerce */}
           <div className="servicio-card card-ecommerce">
             <img 
-              src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=800&auto=format&fit=crop" 
+              src="/images/ecommerceexample.jpg" 
               alt="Desarrollo de E-commerce" 
               className="servicio-img"
             />
@@ -45,7 +38,7 @@ export default function Servicios() {
           {/* Tarjeta 3: Sistemas a Medida */}
           <div className="servicio-card card-sistemas">
             <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
+              src="/images/sistemascompletosexample.jpg" 
               alt="Desarrollo de Sistemas a Medida" 
               className="servicio-img"
             />
