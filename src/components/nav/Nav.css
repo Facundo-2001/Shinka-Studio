@@ -43,6 +43,26 @@
   transition: all 0.3s ease;
 }
 
+.nav-user-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem; /* Tamaño del ícono */
+  color: var(--blanco-hueso, #f5f5f5);
+  transition: color 0.2s ease;
+}
+
+.nav-user-icon:hover,
+.nav-user-icon.active {
+  color: var(--azul-claro, #00bfff); /* Color al pasar el mouse o si la ruta está activa */
+}
+
+/* En pantallas grandes, el ícono se alinea con los demás links */
+@media (min-width: 769px) {
+  .nav-user-icon-item {
+    margin-left: 1rem; /* Espacio entre el último link y el ícono */
+  }
+}
+
 /* Estilos para móviles */
 @media (max-width: 768px) {
   .hamburger {

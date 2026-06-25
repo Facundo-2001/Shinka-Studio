@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Boton from '../../components/boton/Boton.jsx';
 import './Home.css'
 import Carrusel from '../../components/carrusel/Carrusel.jsx';
+import ObtenerDatos from '../../components/Reseñas/ObtenerDatos.jsx';
 
 const heroImages = [
   '/images/home1.jpg',
@@ -70,6 +71,11 @@ const Home = () => {
           </article>
 
         </section>
+      
+      <section className= "quienes-confiaron">
+        <h2>¿QUIÉNES CONFIARON EN NOSOTROS?</h2>
+        <ObtenerDatos />
+      </section>
       </main>
       
     </div>

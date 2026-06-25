@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa'; // Importamos el ícono de usuario
 import './Nav.css';
 
 export default function Nav() {
@@ -27,6 +28,10 @@ export default function Nav() {
         <li><NavLink to="/servicios" onClick={closeMenu}>Servicios</NavLink></li>
         <li><NavLink to="/sobre-nosotros" onClick={closeMenu}>Sobre Nosotros</NavLink></li>
         <li><NavLink to="/contacto" onClick={closeMenu}>Contacto</NavLink></li>
+        {/* Ícono de usuario que enlaza a /login */}
+        <li className="nav-user-icon-item">
+          <NavLink to="/login" className="nav-user-icon" title="Iniciar Sesión" onClick={closeMenu}><FaUserCircle /></NavLink>
+        </li>
       </ul>
     </nav>
   );
