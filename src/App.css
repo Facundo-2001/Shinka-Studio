@@ -29,3 +29,41 @@ body {
 .nav-btn-inicio:hover {
   background-color: var(--verde-azulado); /* Efecto hover para que cambie un poco el tono al pasar el mouse */
 }
+
+/* =========================================
+   Mejoras de Accesibilidad
+========================================= */
+
+/* 1. Clase para ocultar visualmente pero mantener accesible para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 2. Estilo de foco visible para navegación por teclado */
+/* Se usa :focus-visible para no mostrar el contorno en clics de ratón, solo en navegación por teclado */
+:focus-visible {
+  outline: 3px solid var(--azul-cobalto);
+  outline-offset: 2px;
+  border-radius: 0.25rem; /* Opcional: para que el contorno siga los bordes redondeados */
+}
+
+/* 3. Respetar la preferencia del usuario de reducir el movimiento */
+@media (prefers-reduced-motion: reduce) {
+  /* Desactiva todas las transiciones y animaciones si el usuario lo prefiere */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

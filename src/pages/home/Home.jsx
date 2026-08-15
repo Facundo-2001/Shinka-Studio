@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import Boton from '../../components/boton/Boton.jsx';
 import './Home.css'
 import Carrusel from '../../components/carrusel/Carrusel.jsx';
-import ObtenerDatos from '../../components/Reseñas/ObtenerDatos.jsx';
+import Puntuacion from '../../components/puntuacion/Puntuacion.jsx';
+
+const web1 = [
+  '/images/kontrakorriente.jpg',
+  'images/kontrakorriente2.jpg',
+  'images/kontrakorriente3.jpg'
+]
 
 const heroImages = [
   '/images/home1.jpg',
@@ -74,10 +80,45 @@ const Home = () => {
       
       <section className= "quienes-confiaron">
         <h2>¿QUIÉNES CONFIARON EN NOSOTROS?</h2>
-        <ObtenerDatos />
+
+        <div className="clientes-grid">
+          <article className="cliente-card">
+            <div className="cliente-card-image">
+              <Carrusel images={web1} />
+              <div className="cliente-card-info">
+                <h3>Kontra Korriente</h3>
+                <p>Sitio web para venta de títeres</p>
+                <Puntuacion puntuacion={5} />
+              </div>
+            </div>
+          </article>
+
+          <article className="cliente-card">
+            <div className="cliente-card-image" style={{ backgroundImage: "url('/images/luciasanchez.jpg')" }}>
+              <div className="cliente-card-info">
+                <h3>Lucía Sanchez</h3>
+                <p>Sitio web para promoción de servicios de estética y maquillaje.</p>
+                <Puntuacion puntuacion={4} />
+              </div>
+            </div>
+          </article>
+
+          <article className="cliente-card">
+            <div className="cliente-card-image" style={{ backgroundImage: "url('/images/lautyscoffe.jpg')" }}>
+              <div className="cliente-card-info">
+                <h3>Lauty's Coffe</h3>
+                <p>Sitio web desarrollado para una cafetería de especialidad.</p>
+                <Puntuacion puntuacion={5} />
+              </div>
+            </div>
+          </article>
+
+        </div>
       </section>
-      </main>
       
+      
+      
+      </main>
     </div>
   );
 };

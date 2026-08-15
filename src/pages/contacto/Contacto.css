@@ -1,75 +1,200 @@
-.contacto-section {
-  padding: 5rem 1.5rem;
-  background-color: #f8f9fa;
-}
-
-.contacto-container {
-  max-width: 800px;
-  margin: 0 auto;
+/* --- Resets Locales --- */
+.contact-main {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
   background-color: #ffffff;
-  padding: 3rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  width: 100%;
 }
 
-.contacto-header {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Contact Hero (Sección del Título) --- */
+.contact-hero {
+  padding: 120px 60px;
+  background-color: #fcf9f4; /* Color crema similar al fondo de la imagen */
+  margin-bottom: 20px;
+  /* Imagen de fondo */
+  background-image: url('/images/contacto-fondo.jpg');
+  background-size: cover;
+}
+
+.contact-hero h1 {
+  font-size: 2.0rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.contact-hero p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #ffffff;
+  line-height: 1.6;
+  font-size: 1.2rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Contenedor Principal (Grid + Formulario) --- */
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 80px 0;
+}
+
+/* --- Grid de Información (Izquierda) --- */
+.contact-info-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.contact-card {
+  background-color: #fcf9f4; /* Crema suave */
+  padding: 40px 20px;
   text-align: center;
-  margin-bottom: 3rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-.contacto-title {
+.contact-card:hover {
+  transform: translateY(-5px);
+}
+
+.contact-icon {
+  color: #3b2a25; /* Marrón oscuro del logo/footer */
+  width: 32px;
+  height: 32px;
+  margin-bottom: 15px;
+}
+
+.contact-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #1a2b4c;
+  font-weight: 600;
+}
+
+.contact-card p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* --- Formulario (Derecha) --- */
+.contact-form-section {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.contact-form-section h2 {
   font-size: 2.5rem;
-  color: var(--azul-petroleo);
-  margin-bottom: 1rem;
+  color: #1a2b4c;
+  margin-bottom: 15px;
   font-weight: 700;
 }
 
-.contacto-description {
-  font-size: 1.125rem;
-  color: #4b5563;
+.contact-form-section > p {
+  color: #666;
   line-height: 1.6;
+  margin-bottom: 30px;
 }
 
 .contacto-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 20px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .form-group label {
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #000;
+  margin-bottom: 8px;
   font-weight: 600;
-  color: #374151;
 }
 
 .form-group input,
 .form-group textarea {
-  padding: 0.75rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
+  padding: 14px 15px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
   font-size: 1rem;
   font-family: inherit;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fafafa;
+  color: #000;
+  transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--azul-cobalto);
-  box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.2);
+  border-color: #d8845b; /* Naranja del botón */
 }
 
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-submit-btn {
+.submit-btn {
+  background-color: #d8845b; /* Naranja extraído de tu imagen */
+  color: #ffffff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 25px; /* Bordes redondeados estilo píldora */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
   width: 100%;
-  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #c07049;
+}
+
+@media (min-width: 992px) {
+  .contact-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+ .contact-hero p {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+.contact-hero h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color:#000000;
+  }
+
+}
+
+@media (min-width: 576px) {
+  .contact-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .contact-hero h1 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color:#000000;
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-hero h1 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color:#000000;
+  }
 }

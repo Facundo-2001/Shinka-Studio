@@ -72,19 +72,26 @@
   .nav-links {
     position: absolute;
     top: 100%;
-    left: -100%; /* Oculto por defecto a la izquierda */
+    left: 0; /* Ajustado para ocupar todo el ancho */
+    right: 0; /* Añadido para asegurar el ancho completo */
     flex-direction: column;
     background-color: #ffffff;
     width: 100%;
     text-align: center;
-    transition: left 0.3s ease;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     padding: 2rem 0;
     gap: 2rem;
+    /* Nueva transición para un efecto de fundido y deslizamiento vertical */
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none; /* Evita interacciones cuando está oculto */
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .nav-links.active {
-    left: 0; /* Aparece en pantalla al añadir la clase */
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Permite interacciones cuando está visible */
   }
 
   /* Animación del menú hamburguesa convirtiéndose en "X" */

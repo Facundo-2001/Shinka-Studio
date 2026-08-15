@@ -87,7 +87,101 @@
   }
   
   /* Oculta o colapsa el menú en móviles (puedes cambiarlo luego por un menú hamburguesa) */
+  /* Ahora, en lugar de solo ocultarlo, lo posicionamos como un menú desplegable que se superpone al contenido. */
   .header-nav {
-    display: none; 
+    /* Por defecto está oculto. El JavaScript se encargará de mostrarlo (ej. cambiando a display: block). */
+    display: none;
+
+    /* Posicionamiento para que sea un overlay y no empuje el contenido */
+    position: absolute;
+    top: 100%; /* Se posiciona justo debajo del contenedor del header. */
+    left: 0;
+    right: 0; /* Ocupa todo el ancho */
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 999; /* Se asegura que esté por encima del contenido de la página */
   }
+
+  /* Cuando el menú móvil se muestre, los elementos deben estar en una columna */
+  .header-nav ul {
+    flex-direction: column;
+    gap: 0; /* Eliminamos el espaciado para un menú de lista */
+  }
+
+  .header-nav-link {
+    padding: 1rem; /* Hacemos los enlaces más grandes y fáciles de tocar */
+    border-bottom: 1px solid #f0f0f0; /* Separador entre opciones */
+  }
+}
+
+/* ==========================================
+   ESTILOS PARA EL MENÚ DE PERFIL
+   ========================================== */
+
+.profile-menu-container {
+  position: relative;
+  z-index: 1020;
+  margin-left: 1.5rem; /* Añade un espacio a la izquierda para separarlo de la navegación */
+}
+
+.profile-icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.profile-icon-button:hover {
+  color: #0d5f3a;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 150%; /* Lo posiciona justo debajo del ícono */
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  width: 180px;
+  overflow: hidden;
+  animation: dropdown-fade-in 0.2s ease-out;
+}
+
+@keyframes dropdown-fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-dropdown li a,
+.profile-dropdown li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.profile-dropdown li a:hover,
+.profile-dropdown li button:hover {
+  background-color: #f5f5f5;
+}
+
+/* Estilo para el botón de "Iniciar Sesión" que ahora está en Nav.jsx */
+.nav-login-button {
+  text-decoration: none;
+  color: #0d5f3a;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
 }

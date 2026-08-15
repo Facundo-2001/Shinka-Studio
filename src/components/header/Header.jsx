@@ -10,8 +10,9 @@ export default function Header() {
         <Link to="/" className="header-logo-link">
           <img src="/logos/logo.png" alt="Shinka Studio" className="header-logo-img" />
         </Link>
-        
-        <Nav />
+        <div className="header-center">
+          <Nav />
+        </div>
       </div>
     </header>
   );

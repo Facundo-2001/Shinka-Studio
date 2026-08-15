@@ -162,6 +162,101 @@
 }
 
 /* =========================================
+   SECCIÓN QUIÉNES CONFIARON
+========================================= */
+.quienes-confiaron {
+  padding: 4rem 1.5rem 6rem;
+  text-align: center;
+}
+
+.quienes-confiaron h2 {
+  font-size: 2.5rem;
+  color: #1a2b4c; /* Color oscuro para el título */
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.clientes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px; /* Limita el ancho máximo del grid */
+  margin: 0 auto; /* Centra el grid */
+}
+
+.cliente-card {
+  border-radius: 1.5rem; /* Bordes redondeados */
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.cliente-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+}
+
+.cliente-card-image {
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end; /* Alinea el contenido de texto abajo */
+  padding: 1.5rem;
+}
+
+/* Posiciona el carrusel como fondo absoluto dentro de la tarjeta */
+.cliente-card-image .carrusel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Lo pone detrás del texto y el degradado */
+}
+
+/* Asegura que las imágenes del carrusel cubran todo el espacio de la tarjeta */
+.cliente-card-image .carrusel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Pseudo-elemento para el degradado que asegura la legibilidad del texto */
+.cliente-card-image::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 60%);
+  z-index: 1;
+}
+
+.cliente-card-info {
+  position: relative; /* Para que esté por encima del pseudo-elemento */
+  z-index: 2;
+  color: #ffffff;
+  text-align: left;
+}
+
+.cliente-card-info h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+}
+
+.cliente-card-info p {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  color: #e0e0e0; /* Un gris claro para el párrafo */
+}
+
+
+/* =========================================
    RESPONSIVE DESIGN (Móviles y Tablets)
 ========================================= */
 @media (max-width: 992px) {
@@ -182,6 +277,10 @@
   .services-section {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
   }
+
+  .clientes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -196,5 +295,9 @@
   .services-section {
     grid-template-columns: 1fr; /* 1 columna en móviles */
     padding-bottom: 4rem;
+  }
+
+  .clientes-grid {
+    grid-template-columns: 1fr;
   }
 }
