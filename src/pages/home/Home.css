@@ -8,6 +8,14 @@
   /* La altura mínima ya la maneja el layout principal */
 }
 
+.hero-separator h1{
+  text-align: center;
+  font-size: 2.5rem;
+  color: #000000; /* Color oscuro para el título */
+  margin: 3rem auto;
+  font-weight: 700;
+}
+
 /* =========================================
    SECCIÓN HERO
 ========================================= */
@@ -91,7 +99,7 @@
   gap: 2rem;
   max-width: 100%; /* Cambiado a 100% para que ocupe todo el ancho de la pantalla */
   margin: 0 auto;
-  padding: 4rem 1.5rem 6rem;
+  padding: 1rem 1.5rem 6rem; /* Reducido el padding superior de 4rem a 1rem */
 }
 
 .service-card {
@@ -165,7 +173,7 @@
    SECCIÓN QUIÉNES CONFIARON
 ========================================= */
 .quienes-confiaron {
-  padding: 4rem 1.5rem 6rem;
+  padding: 1rem 1.5rem 6rem;
   text-align: center;
 }
 

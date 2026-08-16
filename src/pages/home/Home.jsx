@@ -11,6 +11,18 @@ const web1 = [
   'images/kontrakorriente3.jpg'
 ]
 
+const web2 = [
+  '/images/luciasanchez1.jpg',
+  '/images/luciasanchez2.jpg',
+  '/images/luciasanchez3.jpg'
+]
+
+const web3 = [
+  '/images/coffe1.jpeg',
+  '/images/coffe2.jpeg',
+  '/images/coffe3.jpeg'
+]
+
 const heroImages = [
   '/images/home1.jpg',
   '/images/home2.jpg',
@@ -24,8 +36,8 @@ const Home = () => {
         {/* SECCIÓN HERO */}
         <section className="hero-section">
           <div className="hero-content">
-            <h1>TRANSFORMANDO TU HUELLA DIGITAL</h1>
-            <p>Creamos soluciones digitales para ayudarte a llevar tu negocio al siguiente nivel</p>
+            <h1>Potenciamos tu presencia digital</h1>
+            <p>Diseñamos y desarrollamos soluciones digitales que impulsionan tu marca y crecimiento</p>
             
             <div className="hero-buttons">
               <Link to="/servicios" style={{ textDecoration: 'none' }}>
@@ -39,12 +51,15 @@ const Home = () => {
               </Link>
             </div>
           </div>
-
+          
           {/* Contenedor del Carrusel a la derecha */}
           <div className="hero-carrusel">
             <Carrusel images={heroImages} />
           </div>
         </section>
+        <div className="hero-separator">
+            <h1>¿QUÉ OFRECEMOS?</h1>
+        </div>
 
         {/* SECCIÓN DE SERVICIOS (Las 3 tarjetas) */}
         <section className="services-section">
@@ -94,7 +109,8 @@ const Home = () => {
           </article>
 
           <article className="cliente-card">
-            <div className="cliente-card-image" style={{ backgroundImage: "url('/images/luciasanchez.jpg')" }}>
+            <div className="cliente-card-image">
+              <Carrusel images={web2} />
               <div className="cliente-card-info">
                 <h3>Lucía Sanchez</h3>
                 <p>Sitio web para promoción de servicios de estética y maquillaje.</p>
@@ -104,7 +120,8 @@ const Home = () => {
           </article>
 
           <article className="cliente-card">
-            <div className="cliente-card-image" style={{ backgroundImage: "url('/images/lautyscoffe.jpg')" }}>
+            <div className="cliente-card-image">
+              <Carrusel images={web3} />
               <div className="cliente-card-info">
                 <h3>Lauty's Coffe</h3>
                 <p>Sitio web desarrollado para una cafetería de especialidad.</p>
@@ -115,9 +132,6 @@ const Home = () => {
 
         </div>
       </section>
-      
-      
-      
       </main>
     </div>
   );

@@ -15,29 +15,29 @@ return (
       <section className="contact-content container">
         {/* Lado Izquierdo: Tarjetas de Información y Mapa */}
         <div className="contact-info-grid">
-          <div className="contact-card">
+          <a href="tel:+5491178929045" className="contact-card">
             <FaPhone className="contact-icon" />
             <h3>Teléfono</h3>
-            <p>207-8767-452</p>
-          </div>
+            <p>+54 9 11 7892-9045</p>
+          </a>
 
-          <div className="contact-card">
+          <a href="https://wa.me/5491178929045" target="_blank" rel="noopener noreferrer" className="contact-card">
             <FaWhatsapp className="contact-icon" />
             <h3>WhatsApp</h3>
-            <p>082-123-234-345</p>
-          </div>
+            <p>+54 9 11 7892-9045</p>
+          </a>
           
-          <div className="contact-card">
+          <a href="mailto:shinkastudiosoporte@gmail.com" className="contact-card">
             <FaEnvelope className="contact-icon" />
             <h3>Email</h3>
-            <p>support@shinkastudio.com</p>  
-          </div>
+            <p>shinkastudiosoporte@gmail.com</p>  
+          </a>
         
-          <div className="contact-card">
+          <a href="https://www.instagram.com/shinkastudio_" target="_blank" rel="noopener noreferrer" className="contact-card">
             <FaInstagram className="contact-icon" />
             <h3>Instagram</h3>
             <p>@shinkastudio_</p>
-          </div>
+          </a>
 
         </div>
 
