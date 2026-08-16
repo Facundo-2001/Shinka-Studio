@@ -18,25 +18,21 @@ return (
           <a href="tel:+5491178929045" className="contact-card">
             <FaPhone className="contact-icon" />
             <h3>Teléfono</h3>
-            <p>+54 9 11 7892-9045</p>
           </a>
 
           <a href="https://wa.me/5491178929045" target="_blank" rel="noopener noreferrer" className="contact-card">
             <FaWhatsapp className="contact-icon" />
             <h3>WhatsApp</h3>
-            <p>+54 9 11 7892-9045</p>
           </a>
           
           <a href="mailto:shinkastudiosoporte@gmail.com" className="contact-card">
             <FaEnvelope className="contact-icon" />
-            <h3>Email</h3>
-            <p>shinkastudiosoporte@gmail.com</p>  
+            <h3>Email</h3>  
           </a>
         
           <a href="https://www.instagram.com/shinkastudio_" target="_blank" rel="noopener noreferrer" className="contact-card">
             <FaInstagram className="contact-icon" />
             <h3>Instagram</h3>
-            <p>@shinkastudio_</p>
           </a>
 
         </div>
