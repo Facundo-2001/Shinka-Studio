@@ -15,13 +15,6 @@ export default function Carrusel({
     );
   }, [images.length]);
 
-  // Función para retroceder a la imagen anterior
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
-
   // Efecto para manejar la reproducción automática
   useEffect(() => {
     if (!autoPlay || images.length <= 1) return;
@@ -56,10 +49,6 @@ export default function Carrusel({
           );
         })}
       </div>
-      
-      {/* Botones de navegación */}
-      <button className="carrusel-btn prev" onClick={prevSlide}>&#10094;</button>
-      <button className="carrusel-btn next" onClick={nextSlide}>&#10095;</button>
       
       {/* Indicadores (Dots) */}
       <div className="carrusel-indicators">
