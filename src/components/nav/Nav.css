@@ -1,107 +1,126 @@
-.nav-container {
+.nav {
   display: flex;
   align-items: center;
+  gap: var(--sp-6);
 }
 
-.nav-links {
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
   list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
 }
 
-.nav-links a {
-  color: #333333;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+.nav__link {
+  position: relative;
+  display: inline-block;
+  padding: var(--sp-2) var(--sp-3);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  border-radius: var(--r-sm);
+  transition: color var(--t-fast);
 }
 
-.nav-links a:hover {
-  color: var(--verde-azulado, #78A2A5);
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: var(--sp-3);
+  right: var(--sp-3);
+  bottom: 2px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--t-base);
 }
 
-.nav-links a.active {
-  color: var(--azul-cobalto);
-  font-weight: 700;
+.nav__link:hover {
+  color: var(--brand-700);
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-  z-index: 1001;
+.nav__link:hover::after,
+.nav__link.is-active::after {
+  transform: scaleX(1);
 }
 
-.bar {
-  width: 25px;
-  height: 3px;
-  background-color: #333333;
-  border-radius: 3px;
-  transition: all 0.3s ease;
+.nav__link.is-active {
+  color: var(--brand-700);
 }
 
-.nav-user-icon {
-  display: flex;
+.nav__cta {
+  display: inline-flex;
   align-items: center;
-  font-size: 1.8rem; /* Tamaño del ícono */
-  color: var(--blanco-hueso, #f5f5f5);
-  transition: color 0.2s ease;
+  padding: 0.65rem 1.35rem;
+  font-family: var(--font-display);
+  font-size: 0.925rem;
+  font-weight: 700;
+  color: var(--text-invert);
+  background: var(--grad-brand);
+  border-radius: var(--r-pill);
+  box-shadow: var(--sh-glow);
+  white-space: nowrap;
+  transition: transform var(--t-base), box-shadow var(--t-base), filter var(--t-base);
 }
 
-.nav-user-icon:hover,
-.nav-user-icon.active {
-  color: var(--azul-claro, #00bfff); /* Color al pasar el mouse o si la ruta está activa */
+.nav__cta:hover {
+  color: var(--text-invert);
+  transform: translateY(-2px);
+  filter: brightness(1.08);
 }
 
-/* En pantallas grandes, el ícono se alinea con los demás links */
-@media (min-width: 769px) {
-  .nav-user-icon-item {
-    margin-left: 1rem; /* Espacio entre el último link y el ícono */
-  }
-}
+/* =========================================================
+   Menú móvil
+========================================================= */
 
-/* Estilos para móviles */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0; /* Ajustado para ocupar todo el ancho */
-    right: 0; /* Añadido para asegurar el ancho completo */
+@media (max-width: 900px) {
+  .nav {
+    position: fixed;
+    inset: var(--header-h) 0 0;
     flex-direction: column;
-    background-color: #ffffff;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    padding: 2rem 0;
-    gap: 2rem;
-    /* Nueva transición para un efecto de fundido y deslizamiento vertical */
+    justify-content: flex-start;
+    gap: var(--sp-5);
+    padding: var(--sp-7) var(--gutter) var(--sp-8);
+    background: var(--surface);
+    border-top: 1px solid var(--line);
     opacity: 0;
+    visibility: hidden;
     transform: translateY(-10px);
-    pointer-events: none; /* Evita interacciones cuando está oculto */
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity var(--t-base), transform var(--t-base), visibility var(--t-base);
+    overflow-y: auto;
   }
 
-  .nav-links.active {
+  .nav--open {
     opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto; /* Permite interacciones cuando está visible */
+    visibility: visible;
+    transform: none;
   }
 
-  /* Animación del menú hamburguesa convirtiéndose en "X" */
-  .bar.open:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+  .nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0;
   }
-  .bar.open:nth-child(2) {
-    opacity: 0;
+
+  .nav__link {
+    display: block;
+    padding: var(--sp-4) var(--sp-2);
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--line-soft);
+    border-radius: 0;
   }
-  .bar.open:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+
+  .nav__link::after {
+    display: none;
+  }
+
+  .nav__cta {
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem 1.5rem;
+    font-size: 1rem;
   }
 }

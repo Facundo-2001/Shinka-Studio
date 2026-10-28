@@ -1,69 +1,222 @@
-/* =========================================
-   Variables Globales - Paleta de Colores
-========================================= */
-:root {
-  --verde-pino: #0F5132;
-  --azul-petroleo: #005F73;
-  --verde-azulado: #78A2A5;
-  --azul-cobalto: #0047AB;
-  --azul-cobalto-hover: #003380; /* Tono más oscuro para el hover */
+/* =========================================================
+   Utilidades de layout compartidas
+========================================================= */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
 }
 
-/* Reseteo básico de estilos para todo el proyecto */
-body {
-  margin: 0;
-  padding: 0;
+.section {
+  padding-block: var(--section-y);
 }
 
-/* =========================================
-   Botón Destacado de Navegación (Inicio)
-========================================= */
-.nav-btn-inicio {
-  background-color: var(--verde-pino);
-  color: #ffffff !important; /* Fuerza el color blanco sobreescribiendo el color por defecto de los links */
-  padding: 0.5rem 1.25rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
+.section--alt {
+  background: var(--surface-alt);
 }
 
-.nav-btn-inicio:hover {
-  background-color: var(--verde-azulado); /* Efecto hover para que cambie un poco el tono al pasar el mouse */
+.section--sunken {
+  background: var(--surface-sunken);
 }
 
-/* =========================================
-   Mejoras de Accesibilidad
-========================================= */
-
-/* 1. Clase para ocultar visualmente pero mantener accesible para lectores de pantalla */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+.section--dark {
+  background: var(--grad-deep);
+  color: var(--text-invert-soft);
 }
 
-/* 2. Estilo de foco visible para navegación por teclado */
-/* Se usa :focus-visible para no mostrar el contorno en clics de ratón, solo en navegación por teclado */
-:focus-visible {
-  outline: 3px solid var(--azul-cobalto);
-  outline-offset: 2px;
-  border-radius: 0.25rem; /* Opcional: para que el contorno siga los bordes redondeados */
+.section--dark h2,
+.section--dark h3 {
+  color: var(--text-invert);
 }
 
-/* 3. Respetar la preferencia del usuario de reducir el movimiento */
+/* --- Encabezado de sección --- */
+
+.section-head {
+  max-width: 44rem;
+  margin-inline: auto;
+  margin-bottom: var(--sp-7);
+  text-align: center;
+}
+
+.section-head--left {
+  margin-inline: 0;
+  text-align: left;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-600);
+  margin-bottom: var(--sp-3);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-500);
+}
+
+.section--dark .eyebrow {
+  color: var(--accent-400);
+}
+
+.section-lead {
+  font-size: var(--fs-lead);
+  color: var(--muted);
+  margin-top: var(--sp-4);
+}
+
+.section--dark .section-lead {
+  color: var(--text-invert-soft);
+}
+
+/* --- Tarjeta base --- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+  transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sh-lg);
+  border-color: var(--brand-100);
+}
+
+/* --- Animación de entrada --- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 650ms var(--ease), transform 650ms var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  /* Desactiva todas las transiciones y animaciones si el usuario lo prefiere */
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   Encabezado de página interna
+========================================================= */
+
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--grad-deep);
+  color: var(--text-invert-soft);
+  padding-block: clamp(3rem, 2rem + 5vw, 5.5rem);
+}
+
+.page-hero::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 36rem;
+  height: 36rem;
+  background: radial-gradient(circle, rgba(0, 196, 219, 0.18) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+  text-align: center;
+}
+
+.page-hero .eyebrow {
+  color: var(--accent-400);
+}
+
+.page-hero h1 {
+  color: var(--text-invert);
+  margin-bottom: var(--sp-4);
+}
+
+.page-hero__lead {
+  font-size: var(--fs-lead);
+  line-height: 1.75;
+  color: var(--text-invert-soft);
+}
+
+.page-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+/* =========================================================
+   Bloque de llamado a la acción final
+========================================================= */
+
+.cta-final {
+  padding-block: var(--section-y);
+  background: var(--grad-brand);
+  color: var(--text-invert-soft);
+}
+
+.cta-final__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-6);
+}
+
+.cta-final__text {
+  max-width: 34rem;
+  text-align: left;
+}
+
+.cta-final h2 {
+  color: var(--text-invert);
+  margin-bottom: var(--sp-3);
+}
+
+.cta-final__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+}
+
+@media (max-width: 640px) {
+  .cta-final__inner,
+  .cta-final__text {
+    text-align: center;
+  }
+
+  .cta-final__actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cta-final__actions .btn,
+  .page-hero__actions .btn {
+    width: 100%;
   }
 }

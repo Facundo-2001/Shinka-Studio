@@ -1,22 +1,25 @@
-import React from 'react';
 import './Puntuacion.css';
 
 /**
- * Componente de presentación ("dumb") que renderiza una calificación con estrellas.
- * @param {object} props
- * @param {number} props.puntuacion - Un número entero del 1 al 5 que representa la calificación.
+ * Calificación con estrellas. Expone el valor como texto accesible
+ * para lectores de pantalla además de mostrarlo visualmente.
  */
-const Puntuacion = ({ puntuacion = 0 }) => {
-  const totalEstrellas = 5;
-  const estrellasRenderizadas = [];
-
-  for (let i = 1; i <= totalEstrellas; i++) {
-    // Añade una estrella llena si el índice es menor o igual a la puntuación, de lo contrario, añade una vacía.
-    const tipoEstrella = i <= puntuacion ? 'llena' : 'vacia';
-    estrellasRenderizadas.push(<span key={i} className={`estrella ${tipoEstrella}`}>★</span>);
-  }
-
-  return <div className="puntuacion-container">{estrellasRenderizadas}</div>;
-};
-
-export default Puntuacion;
+export default function Puntuacion({ puntuacion = 0, total = 5 }) {
+  return (
+    <div
+      className="puntuacion"
+      role="img"
+      aria-label={`Calificación: ${puntuacion} de ${total} estrellas`}
+    >
+      {Array.from({ length: total }, (_, index) => (
+        <span
+          key={index}
+          aria-hidden="true"
+          className={`puntuacion__estrella ${index < puntuacion ? 'is-llena' : ''}`}
+        >
+          ★
+        </span>
+      ))}
+    </div>
+  );
+}

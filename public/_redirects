@@ -1,0 +1,6 @@
+# Netlify.
+# Las páginas reales (/, /servicios, /sobre-nosotros, /contacto) se generan como
+# archivos estáticos en el build, y Netlify los sirve antes que esta regla.
+# Por eso el comodín solo cae en URLs que no existen: devolvemos un 404 real en
+# lugar de un "soft 404" con status 200, que Google penaliza.
+/*    /404.html   404

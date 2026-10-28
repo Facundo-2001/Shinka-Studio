@@ -1,20 +1,40 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 import './Boton.css';
 
-export default function Boton({ 
-  children, 
-  variant = 'primary', 
-  className = '', 
-  ...props 
+/**
+ * Botón polimórfico: renderiza <Link>, <a> o <button> según las props.
+ * Así evitamos anidar un <button> dentro de un <a>, que es HTML inválido
+ * y confunde tanto a los lectores de pantalla como a los buscadores.
+ */
+export default function Boton({
+  children,
+  variant = 'primary',
+  size = 'md',
+  to,
+  href,
+  className = '',
+  ...props
 }) {
-  // Determinamos la clase de la variante a utilizar
-  const variantClass = variant === 'outline' ? 'btn-outline' : 'btn-primary';
+  const classes = `btn btn--${variant} btn--${size} ${className}`.trim();
+
+  if (to) {
+    return (
+      <Link to={to} className={classes} {...props}>
+        {children}
+      </Link>
+    );
+  }
+
+  if (href) {
+    return (
+      <a className={classes} href={href} {...props}>
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <button 
-      className={`btn ${variantClass} ${className}`}
-      {...props}
-    >
+    <button type="button" className={classes} {...props}>
       {children}
     </button>
   );

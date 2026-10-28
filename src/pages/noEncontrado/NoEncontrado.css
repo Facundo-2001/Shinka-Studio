@@ -1,0 +1,17 @@
+.no-encontrado {
+  display: grid;
+  place-items: center;
+  min-height: 62vh;
+}
+
+.no-encontrado__codigo {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 2rem + 12vw, 8rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(0, 196, 219, 0.55);
+  margin-bottom: var(--sp-4);
+}

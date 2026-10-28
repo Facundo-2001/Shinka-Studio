@@ -1,26 +1,26 @@
-import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import Home from './pages/home/Home.jsx';
 import Servicios from './pages/servicios/Servicios.jsx';
 import SobreNosotros from './pages/sobreNosotros/SobreNosotros.jsx';
 import Contacto from './pages/contacto/Contacto.jsx';
+import NoEncontrado from './pages/noEncontrado/NoEncontrado.jsx';
 
-
-function App() {
+export default function App() {
   return (
-    <BrowserRouter>
+    <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="servicios" element={<Servicios />} />
           <Route path="sobre-nosotros" element={<SobreNosotros />} />
           <Route path="contacto" element={<Contacto />} />
+          <Route path="*" element={<NoEncontrado />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
-
-export default App;

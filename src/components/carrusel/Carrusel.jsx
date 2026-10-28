@@ -1,65 +1,117 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './Carrusel.css';
 
-export default function Carrusel({ 
-  images = [], 
-  autoPlay = true, 
-  interval = 4000 
+export default function Carrusel({
+  images = [],
+  autoPlay = true,
+  interval = 4500,
+  label = 'Galería de imágenes',
+  priority = false,
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef(null);
 
-  // Función para avanzar a la siguiente imagen
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
-  }, [images.length]);
+  const goTo = useCallback(
+    (index) => {
+      const total = images.length;
+      if (total === 0) return;
+      setCurrentIndex(((index % total) + total) % total);
+    },
+    [images.length]
+  );
 
-  // Efecto para manejar la reproducción automática
+  const next = useCallback(() => goTo(currentIndex + 1), [currentIndex, goTo]);
+  const prev = useCallback(() => goTo(currentIndex - 1), [currentIndex, goTo]);
+
   useEffect(() => {
-    if (!autoPlay || images.length <= 1) return;
-    
-    const timer = setInterval(() => {
-      nextSlide();
-    }, interval);
-    
-    // Limpiamos el intervalo si el componente se desmonta o cambia
-    return () => clearInterval(timer);
-  }, [autoPlay, interval, images.length, nextSlide]);
+    if (!autoPlay || isPaused || images.length <= 1) return undefined;
 
-  if (!images || images.length === 0) {
-    return null; // No renderizamos nada si no hay imágenes
-  }
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return undefined;
+
+    const timer = setInterval(next, interval);
+    return () => clearInterval(timer);
+  }, [autoPlay, isPaused, interval, images.length, next]);
+
+  if (images.length === 0) return null;
 
   return (
-    <div className="carrusel-container">
-      <div 
-        className="carrusel-inner" 
+    <div
+      className="carrusel"
+      ref={containerRef}
+      role="group"
+      aria-roledescription="carrusel"
+      aria-label={label}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={() => setIsPaused(false)}
+    >
+      <div
+        className="carrusel__track"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((img, index) => {
-          // Soportar tanto arreglos de strings (URLs) como de objetos {src, alt}
           const src = typeof img === 'string' ? img : img.src;
-          const alt = typeof img === 'string' ? `Slide ${index + 1}` : (img.alt || `Slide ${index + 1}`);
-          
+          const alt = typeof img === 'string' ? `${label} ${index + 1}` : img.alt || `${label} ${index + 1}`;
+          const eager = priority && index === 0;
+
           return (
-            <div className="carrusel-slide" key={index}>
-              <img src={src} alt={alt} />
+            <div
+              className="carrusel__slide"
+              key={src}
+              aria-hidden={index !== currentIndex}
+            >
+              <img
+                src={src}
+                alt={alt}
+                loading={eager ? 'eager' : 'lazy'}
+                decoding={eager ? 'sync' : 'async'}
+                fetchPriority={eager ? 'high' : 'auto'}
+                width="1280"
+                height="720"
+              />
             </div>
           );
         })}
       </div>
-      
-      {/* Indicadores (Dots) */}
-      <div className="carrusel-indicators">
-        {images.map((_, index) => (
-          <span 
-            key={index} 
-            className={`dot ${currentIndex === index ? 'active' : ''}`} 
-            onClick={() => setCurrentIndex(index)}
-          ></span>
-        ))}
-      </div>
+
+      {images.length > 1 && (
+        <>
+          <button
+            type="button"
+            className="carrusel__arrow carrusel__arrow--prev"
+            onClick={prev}
+            aria-label="Imagen anterior"
+          >
+            <span aria-hidden="true">&#8249;</span>
+          </button>
+          <button
+            type="button"
+            className="carrusel__arrow carrusel__arrow--next"
+            onClick={next}
+            aria-label="Imagen siguiente"
+          >
+            <span aria-hidden="true">&#8250;</span>
+          </button>
+
+          <div className="carrusel__dots">
+            {images.map((img, index) => (
+              <button
+                type="button"
+                key={typeof img === 'string' ? img : img.src}
+                className={`carrusel__dot ${currentIndex === index ? 'is-active' : ''}`}
+                onClick={() => goTo(index)}
+                aria-label={`Ir a la imagen ${index + 1} de ${images.length}`}
+                aria-current={currentIndex === index}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

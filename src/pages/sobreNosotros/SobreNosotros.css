@@ -1,41 +1,164 @@
-.sobre-nosotros-section {
-  background-image: url('/images/fondo.png');
-  padding: 5rem 1.5rem;
-  background-size: cover;
-  background-position: center;
+/* =========================================================
+   Relato
+========================================================= */
+
+.nosotros {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
 }
 
-.sobre-nosotros-container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 3rem;
-  border-radius: 1rem;
-  background-color: rgba(248, 249, 250, 0.85);
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(4px);
+.nosotros__texto {
+  text-align: left;
 }
 
-.sobre-nosotros-title {
-  font-size: 2.5rem;
-  color: var(--azul-petroleo, #005F73);
-  margin-bottom: 1.5rem;
-  font-weight: 700;
+.nosotros__texto h2 {
+  margin-bottom: var(--sp-5);
 }
 
-.sobre-nosotros-text {
-  font-size: 1.125rem;
-  color: #4b5563;
+.nosotros__texto p {
+  margin-bottom: var(--sp-4);
+  color: var(--muted);
   line-height: 1.8;
-  margin-bottom: 1.5rem;
 }
 
-.sobre-nosotros-text:last-child {
-  margin-bottom: 0;
-}
-
-.sobre-nosotros-highlight {
-  color: var(--verde-pino, #0F5132);
+.destacado {
   font-weight: 700;
+  color: var(--brand-700);
+  background: linear-gradient(transparent 62%, var(--accent-100) 62%);
+}
+
+.nosotros__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-top: var(--sp-6);
+}
+
+.nosotros__media {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
+}
+
+.nosotros__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(10, 28, 48, 0.45) 100%);
+}
+
+.nosotros__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* =========================================================
+   Datos destacados
+========================================================= */
+
+.datos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-5);
+}
+
+.dato {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-5);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-lg);
+}
+
+.dato__valor {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent-400);
+}
+
+.dato__etiqueta {
+  font-size: var(--fs-sm);
+  color: var(--text-invert-soft);
+}
+
+/* =========================================================
+   Valores
+========================================================= */
+
+.valores {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-5);
+}
+
+.valor {
+  padding: var(--sp-6) var(--sp-5);
+  text-align: left;
+}
+
+.valor__icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: var(--sp-4);
+  font-size: 1.25rem;
+  color: var(--text-invert);
+  background: var(--grad-brand);
+  border-radius: var(--r-md);
+}
+
+.valor h3 {
+  font-size: 1.05rem;
+  margin-bottom: var(--sp-2);
+}
+
+.valor p {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width: 1024px) {
+  .nosotros {
+    grid-template-columns: 1fr;
+  }
+
+  .nosotros__media {
+    order: -1;
+    max-width: 30rem;
+    margin-inline: auto;
+  }
+
+  .nosotros__media img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .datos,
+  .valores {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .datos,
+  .valores {
+    grid-template-columns: 1fr;
+  }
+
+  .nosotros__acciones .btn {
+    width: 100%;
+  }
 }

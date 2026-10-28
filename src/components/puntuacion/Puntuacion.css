@@ -1,13 +1,14 @@
-.puntuacion-container {
+.puntuacion {
   display: inline-flex;
-  align-items: center;
-  gap: 2px; /* Espacio entre estrellas */
-}
-
-.estrella {
-  font-size: 1.2rem; /* Tamaño de las estrellas */
+  gap: 2px;
+  font-size: 1.05rem;
   line-height: 1;
 }
 
-.estrella.llena { color: #ffc107; } /* Color dorado para estrellas llenas */
-.estrella.vacia { color: #e0e0e0; } /* Color gris claro para estrellas vacías */
+.puntuacion__estrella {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.puntuacion__estrella.is-llena {
+  color: #FFC24B;
+}

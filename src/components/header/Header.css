@@ -1,187 +1,92 @@
-.header-container {
-  background-color: #ffffff;
-  color: #333333;
-  padding: 1rem 1.5rem;
+.header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-base), box-shadow var(--t-base), background var(--t-base);
 }
 
-.header-content {
-  max-width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative; /* CRUCIAL para que el posicionamiento absoluto funcione relativo a esto */
-  min-height: 60px;   /* Define la altura fija que quieres que mantenga tu header */
+.header--scrolled {
+  border-bottom-color: var(--line);
+  box-shadow: 0 6px 24px -18px rgba(12, 23, 36, 0.5);
 }
 
-.header-logo-link {
-  position: absolute;
-  left: 0;           /* Lo alinea a la izquierda del content */
-  top: 50%;          /* Lo centra verticalmente */
-  transform: translateY(-50%); /* Truco clásico para centrado vertical perfecto */
+.header__inner {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  z-index: 1010;     /* Para asegurarte de que quede por encima de todo */
+  justify-content: space-between;
+  gap: var(--sp-5);
+  min-height: var(--header-h);
 }
 
-/* Nota: En la maqueta original el logo se ve un poco más compacto, 
-   si notas que 150px es demasiado alto, puedes bajarlo a 60px-80px */
-.header-logo-img {
-  height: 160px; /* Probá con 90px o 100px para ver cómo sobresale */
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header__logo-img {
+  height: 46px;
   width: auto;
-  transition: height 0.3s ease;
+  transition: transform var(--t-base);
 }
 
-/* ==========================================
-   NUEVAS REGLAS PARA LA NAVEGACIÓN (MENÚ)
-   ========================================== */
+.header__logo:hover .header__logo-img {
+  transform: scale(1.03);
+}
 
-.header-nav ul {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  margin: 0;
+/* --- Botón hamburguesa --- */
+
+.header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
   padding: 0;
-  gap: 1.5rem; /* Espaciado limpio entre cada opción */
-}
-
-.header-nav-link {
-  text-decoration: none;
-  color: #555555; /* Gris intermedio para los enlaces inactivos */
-  font-family: sans-serif; /* Cambia por tu tipografía si usas otra */
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 0.5px;
-  padding: 0.5rem 1rem; /* Espaciado interno para la forma de botón */
-  transition: all 0.3s ease;
-}
-
-/* Efecto hover sutil para las opciones inactivas */
-.header-nav-link:hover {
-  color: #0d5f3a; 
-}
-
-/* ESTADO ACTIVO: El botón verde para HOME */
-.header-nav-link.active {
-  background-color: #0d5f3a; /* El verde característico */
-  color: #ffffff;            /* Texto blanco */
-  border-radius: 4px;        /* Bordes redondeados sutiles */
-}
-
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
-@media (max-width: 768px) {
-  .header-content {
-    justify-content: flex-end; /* Mueve el menú hamburguesa a la derecha */
-  }
-
-  .header-logo-img {
-    height: 100px; 
-  }
-  
-  /* Oculta o colapsa el menú en móviles (puedes cambiarlo luego por un menú hamburguesa) */
-  /* Ahora, en lugar de solo ocultarlo, lo posicionamos como un menú desplegable que se superpone al contenido. */
-  .header-nav {
-    /* Por defecto está oculto. El JavaScript se encargará de mostrarlo (ej. cambiando a display: block). */
-    display: none;
-
-    /* Posicionamiento para que sea un overlay y no empuje el contenido */
-    position: absolute;
-    top: 100%; /* Se posiciona justo debajo del contenedor del header. */
-    left: 0;
-    right: 0; /* Ocupa todo el ancho */
-    background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 999; /* Se asegura que esté por encima del contenido de la página */
-  }
-
-  /* Cuando el menú móvil se muestre, los elementos deben estar en una columna */
-  .header-nav ul {
-    flex-direction: column;
-    gap: 0; /* Eliminamos el espaciado para un menú de lista */
-  }
-
-  .header-nav-link {
-    padding: 1rem; /* Hacemos los enlaces más grandes y fáciles de tocar */
-    border-bottom: 1px solid #f0f0f0; /* Separador entre opciones */
-  }
-}
-
-/* ==========================================
-   ESTILOS PARA EL MENÚ DE PERFIL
-   ========================================== */
-
-.profile-menu-container {
-  position: relative;
-  z-index: 1020;
-  margin-left: 1.5rem; /* Añade un espacio a la izquierda para separarlo de la navegación */
-}
-
-.profile-icon-button {
   background: none;
-  border: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
   cursor: pointer;
-  padding: 0;
-  display: flex;
   align-items: center;
-  color: #333;
+  transition: border-color var(--t-fast), background var(--t-fast);
 }
 
-.profile-icon-button:hover {
-  color: #0d5f3a;
+.header__burger:hover {
+  border-color: var(--brand-400);
+  background: var(--brand-50);
 }
 
-.profile-dropdown {
-  position: absolute;
-  top: 150%; /* Lo posiciona justo debajo del ícono */
-  right: 0;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0;
-  width: 180px;
-  overflow: hidden;
-  animation: dropdown-fade-in 0.2s ease-out;
+.header__burger-bar {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink);
+  transition: transform var(--t-base), opacity var(--t-fast);
 }
 
-@keyframes dropdown-fade-in {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+.header__burger.is-open .header__burger-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
 
-.profile-dropdown li a,
-.profile-dropdown li button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 0.75rem 1.5rem;
-  background: none;
-  border: none;
-  color: #333;
-  text-decoration: none;
-  font-size: 0.95rem;
-  cursor: pointer;
-  box-sizing: border-box;
+.header__burger.is-open .header__burger-bar:nth-child(2) {
+  opacity: 0;
 }
 
-.profile-dropdown li a:hover,
-.profile-dropdown li button:hover {
-  background-color: #f5f5f5;
+.header__burger.is-open .header__burger-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Estilo para el botón de "Iniciar Sesión" que ahora está en Nav.jsx */
-.nav-login-button {
-  text-decoration: none;
-  color: #0d5f3a;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
+@media (max-width: 900px) {
+  .header__burger {
+    display: flex;
+  }
+
+  .header__logo-img {
+    height: 40px;
+  }
 }
