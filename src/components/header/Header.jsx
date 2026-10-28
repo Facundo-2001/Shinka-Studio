@@ -37,10 +37,10 @@ export default function Header() {
       <div className="header__inner container">
         <Link to="/" className="header__logo" aria-label="Shinka Studio, ir al inicio">
           <img
-            src="/logos/logo.png"
+            src="/logos/logo-compacto.png"
             alt="Shinka Studio"
-            width="200"
-            height="100"
+            width="424"
+            height="205"
             className="header__logo-img"
           />
         </Link>

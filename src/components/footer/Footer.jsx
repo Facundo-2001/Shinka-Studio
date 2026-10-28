@@ -16,10 +16,10 @@ export default function Footer() {
       <div className="footer__inner container">
         <div className="footer__brand">
           <img
-            src="/logos/logo.png"
+            src="/logos/logo-compacto.png"
             alt="Shinka Studio"
-            width="200"
-            height="100"
+            width="424"
+            height="205"
             className="footer__logo"
             loading="lazy"
           />

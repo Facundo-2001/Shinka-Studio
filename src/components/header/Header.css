@@ -29,7 +29,7 @@
 }
 
 .header__logo-img {
-  height: 46px;
+  height: 54px;
   width: auto;
   transition: transform var(--t-base);
 }
@@ -87,6 +87,6 @@
   }
 
   .header__logo-img {
-    height: 40px;
+    height: 44px;
   }
 }
