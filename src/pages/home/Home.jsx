@@ -69,6 +69,43 @@ const proceso = [
 
 const clientes = [
   {
+    nombre: 'Servicio Técnico PDC',
+    rubro: 'Web de reparación de línea blanca a domicilio en la Riviera Maya',
+    puntuacion: 5,
+    imagenes: [
+      { src: '/images/serviciotecnicopdc1.jpg', alt: 'Sitio web de Servicio Técnico PDC, portada del servicio de reparación de línea blanca' },
+      { src: '/images/serviciotecnicopdc2.jpg', alt: 'Sitio web de Servicio Técnico PDC, electrodomésticos que repara el servicio' },
+      { src: '/images/serviciotecnicopdc3.jpg', alt: 'Sitio web de Servicio Técnico PDC, marcas de línea blanca que atiende' },
+      { src: '/images/serviciotecnicopdc4.jpg', alt: 'Sitio web de Servicio Técnico PDC, ventajas del servicio y señales de falla' },
+      { src: '/images/serviciotecnicopdc5.jpg', alt: 'Sitio web de Servicio Técnico PDC, zonas de cobertura del servicio a domicilio' },
+      { src: '/images/serviciotecnicopdc6.jpg', alt: 'Sitio web de Servicio Técnico PDC, galería de trabajos realizados' },
+      { src: '/images/serviciotecnicopdc7.jpg', alt: 'Sitio web de Servicio Técnico PDC, sección de contacto y horarios de atención' },
+    ],
+  },
+  {
+    nombre: 'Reynitas',
+    rubro: 'Catálogo web de bijouterie y accesorios artesanales',
+    puntuacion: 5,
+    imagenes: [
+      { src: '/images/reynitas1.jpg', alt: 'Sitio web de Reynitas, portada de accesorios artesanales' },
+      { src: '/images/reynitas2.jpg', alt: 'Sitio web de Reynitas, categorías de collares, pulseras y línea infantil' },
+      { src: '/images/reynitas3.jpg', alt: 'Sitio web de Reynitas, galería de piezas disponibles' },
+      { src: '/images/reynitas4.jpg', alt: 'Sitio web de Reynitas, catálogo de bijouterie' },
+      { src: '/images/reynitas5.jpg', alt: 'Sitio web de Reynitas, sección de contacto y envíos' },
+    ],
+  },
+  {
+    nombre: 'Adriana De Torres',
+    rubro: 'Sitio profesional de relaciones públicas y vinculación de marcas',
+    puntuacion: 5,
+    imagenes: [
+      { src: '/images/adrianadetorres1.jpg', alt: 'Sitio web de Adriana De Torres, portada de relaciones públicas' },
+      { src: '/images/adrianadetorres2.jpg', alt: 'Sitio web de Adriana De Torres, proyectos destacados' },
+      { src: '/images/adrianadetorres3.jpg', alt: 'Sitio web de Adriana De Torres, marcas que confiaron y servicios' },
+      { src: '/images/adrianadetorres4.jpg', alt: 'Sitio web de Adriana De Torres, sección de contacto' },
+    ],
+  },
+  {
     nombre: 'Kontra Korriente',
     rubro: 'Sitio web para venta de títeres artesanales',
     puntuacion: 5,
