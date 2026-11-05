@@ -111,6 +111,7 @@ const clientes = [
   {
     nombre: 'Kontra Korriente',
     rubro: 'Sitio web para venta de títeres artesanales',
+    url: 'https://kontra-korriente.vercel.app',
     puntuacion: 5,
     imagenes: [
       { src: '/images/kontrakorriente.jpg', alt: 'Sitio web de Kontra Korriente, inicio' },
@@ -121,6 +122,7 @@ const clientes = [
   {
     nombre: 'Lucía Sánchez',
     rubro: 'Web de servicios de estética y maquillaje profesional',
+    url: 'https://lucia-sanchez.vercel.app',
     puntuacion: 4,
     imagenes: [
       { src: '/images/luciasanchez1.jpg', alt: 'Sitio web de Lucía Sánchez, portada' },
