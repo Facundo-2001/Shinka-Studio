@@ -71,6 +71,7 @@ const clientes = [
   {
     nombre: 'Servicio Técnico PDC',
     rubro: 'Web de reparación de línea blanca a domicilio en la Riviera Maya',
+    url: 'https://serviciotecnicopdc.vercel.app',
     puntuacion: 5,
     imagenes: [
       { src: '/images/serviciotecnicopdc1.jpg', alt: 'Sitio web de Servicio Técnico PDC, portada del servicio de reparación de línea blanca' },
@@ -85,6 +86,7 @@ const clientes = [
   {
     nombre: 'Reynitas',
     rubro: 'Catálogo web de bijouterie y accesorios artesanales',
+    url: 'https://reynitas.vercel.app',
     puntuacion: 5,
     imagenes: [
       { src: '/images/reynitas1.jpg', alt: 'Sitio web de Reynitas, portada de accesorios artesanales' },
@@ -97,6 +99,7 @@ const clientes = [
   {
     nombre: 'Adriana De Torres',
     rubro: 'Sitio profesional de relaciones públicas y vinculación de marcas',
+    url: 'https://adrianadetorres.vercel.app',
     puntuacion: 5,
     imagenes: [
       { src: '/images/adrianadetorres1.jpg', alt: 'Sitio web de Adriana De Torres, portada de relaciones públicas' },
@@ -298,7 +301,7 @@ export default function Home() {
           </div>
 
           <div className="clientes">
-            {clientes.map(({ nombre, rubro, puntuacion, imagenes }, index) => (
+            {clientes.map(({ nombre, rubro, puntuacion, imagenes, url }, index) => (
               <Reveal as="article" className="cliente" key={nombre} delay={index * 110}>
                 <Carrusel
                   images={imagenes}
@@ -308,7 +311,20 @@ export default function Home() {
                 <div className="cliente__overlay">
                   <h3>{nombre}</h3>
                   <p>{rubro}</p>
-                  <Puntuacion puntuacion={puntuacion} />
+                  <div className="cliente__meta">
+                    <Puntuacion puntuacion={puntuacion} />
+                    {url && (
+                      <a
+                        className="cliente__link"
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Ver el sitio web de ${nombre}, se abre en una pestaña nueva`}
+                      >
+                        Ver sitio <span aria-hidden="true">&#8599;</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
               </Reveal>
             ))}
