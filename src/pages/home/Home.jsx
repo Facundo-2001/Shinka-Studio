@@ -128,16 +128,6 @@ const clientes = [
       { src: '/images/luciasanchez3.jpg', alt: 'Sitio web de Lucía Sánchez, galería de trabajos' },
     ],
   },
-  {
-    nombre: 'Lauty’s Coffee',
-    rubro: 'Sitio web para una cafetería de especialidad',
-    puntuacion: 5,
-    imagenes: [
-      { src: '/images/coffe1.jpeg', alt: 'Sitio web de Lauty’s Coffee, portada' },
-      { src: '/images/coffe2.jpeg', alt: 'Sitio web de Lauty’s Coffee, carta de la cafetería' },
-      { src: '/images/coffe3.jpeg', alt: 'Sitio web de Lauty’s Coffee, sección de contacto' },
-    ],
-  },
 ];
 
 const preguntas = [
