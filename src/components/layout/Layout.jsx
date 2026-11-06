@@ -2,9 +2,16 @@ import { Outlet } from 'react-router-dom';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 import BotonWhatsApp from '../whatsapp/BotonWhatsApp';
+import useRegistrarVisita from '../../analitica/useRegistrarVisita.js';
 import './Layout.css';
 
 export default function Layout() {
+  /**
+   * Registro de visitas. Va acá y no en App para que el panel (/admin, que
+   * está fuera del Layout) no se cuente a sí mismo.
+   */
+  useRegistrarVisita();
+
   return (
     <>
       <a className="skip-link" href="#contenido">Saltar al contenido principal</a>

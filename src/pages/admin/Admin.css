@@ -1,0 +1,281 @@
+/* =========================================================
+   Panel de administración — marco, login y estados.
+
+   Todo sale de tokens.css: no hay un solo hex suelto acá. Si falta un
+   valor, se agrega el token, no el color.
+
+   Solo modo claro: el sitio no tiene modo oscuro y el panel no se lo
+   inventa.
+========================================================= */
+
+.admin {
+  min-height: 100vh;
+  background: var(--surface-alt);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+/* --- Barra superior --- */
+
+.admin__barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-3) var(--gutter);
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--sh-xs);
+}
+
+.admin__marca {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  text-decoration: none;
+  color: inherit;
+}
+
+.admin__logo {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.admin__marca-texto {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-strong);
+}
+
+.admin__marca-sitio {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.admin__usuario {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.admin__usuario-nombre {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.admin__contenido {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: var(--sp-6) var(--gutter) var(--sp-8);
+}
+
+/* --- Avisos a pantalla completa (sin API, falta instalar) --- */
+
+.admin__aviso {
+  max-width: 34rem;
+  margin: var(--sp-7) auto;
+  padding: var(--sp-6);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+  text-align: center;
+}
+
+.admin__aviso-titulo {
+  margin: 0 0 var(--sp-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  color: var(--text-strong);
+}
+
+.admin__aviso-texto {
+  margin: 0 0 var(--sp-3);
+  font-size: var(--fs-base);
+  line-height: 1.6;
+}
+
+/* El último párrafo separa del botón; los del medio van más juntos. */
+.admin__aviso-texto:last-of-type {
+  margin-bottom: var(--sp-5);
+}
+
+.admin__aviso-texto code {
+  padding: 0.1em 0.4em;
+  background: var(--surface-sunken);
+  border-radius: var(--r-sm);
+  font-size: 0.9em;
+}
+
+/* =========================================================
+   Login
+========================================================= */
+
+.login {
+  display: flex;
+  justify-content: center;
+  padding: var(--sp-6) 0;
+}
+
+.login__caja {
+  width: 100%;
+  max-width: 26rem;
+  padding: var(--sp-6);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+}
+
+.login__titulo {
+  margin: 0 0 var(--sp-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  color: var(--text-strong);
+}
+
+.login__intro {
+  margin: 0 0 var(--sp-5);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.login__campo {
+  display: block;
+  margin-bottom: var(--sp-4);
+}
+
+.login__etiqueta {
+  display: block;
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.login__input {
+  width: 100%;
+  padding: 0.75rem var(--sp-3);
+  font-family: inherit;
+  font-size: var(--fs-base);
+  color: var(--text-strong);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.login__input:focus {
+  outline: none;
+  border-color: var(--brand-600);
+  box-shadow: 0 0 0 3px var(--brand-100);
+}
+
+.login__error {
+  margin: 0 0 var(--sp-4);
+  padding: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text-strong);
+  background: var(--surface-sunken);
+  border-left: 3px solid var(--brand-600);
+  border-radius: var(--r-sm);
+}
+
+.login__boton {
+  width: 100%;
+}
+
+/* =========================================================
+   Utilidades compartidas del panel
+========================================================= */
+
+.panel-vacio {
+  margin: 0;
+  padding: var(--sp-5) 0;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  text-align: center;
+}
+
+.panel-error {
+  margin: 0 0 var(--sp-5);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--fs-sm);
+  color: var(--text-strong);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--brand-600);
+  border-radius: var(--r-sm);
+}
+
+/* Visible para lectores de pantalla, invisible en pantalla. */
+.panel-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================
+   Esqueleto de carga (también es lo que entrega el prerenderizado)
+========================================================= */
+
+.esqueleto__linea,
+.esqueleto__bloque,
+.esqueleto__grafico {
+  background: var(--surface-sunken);
+  border-radius: var(--r-md);
+}
+
+.esqueleto__linea--titulo {
+  width: 14rem;
+  height: 2rem;
+  margin-bottom: var(--sp-5);
+}
+
+.esqueleto__tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+
+.esqueleto__bloque {
+  height: 7.5rem;
+}
+
+.esqueleto__grafico {
+  height: 18rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .esqueleto__linea,
+  .esqueleto__bloque,
+  .esqueleto__grafico {
+    animation: esqueleto-latido 1.6s var(--ease) infinite;
+  }
+}
+
+@keyframes esqueleto-latido {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@media (max-width: 36rem) {
+  .admin__barra {
+    flex-wrap: wrap;
+  }
+}

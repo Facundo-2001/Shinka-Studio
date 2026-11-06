@@ -1,0 +1,547 @@
+/* =========================================================
+   Tablero: tarjetas, gráfico de serie, rankings y tabla.
+
+   Reglas transversales de la estética:
+   - El texto nunca lleva el color de la serie. Valores, etiquetas y
+     leyendas van en --text / --muted / --text-strong; la identidad la da
+     el punto o la línea de color AL LADO del texto.
+   - tabular-nums solo donde los números tienen que alinearse en columna
+     (tablas y marcas del eje). En la cifra grande, cifras proporcionales.
+   - Una sola cifra heroica en toda la vista.
+========================================================= */
+
+.tablero__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+.tablero__titulo {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: 1.15;
+  color: var(--text-strong);
+}
+
+.tablero__rango {
+  margin: var(--sp-2) 0 0;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.tablero__controles {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.tablero__rangos {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+}
+
+.tablero__rango-boton {
+  padding: 0.5rem var(--sp-4);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.tablero__rango-boton:hover {
+  color: var(--text-strong);
+  background: var(--surface-sunken);
+}
+
+.tablero__rango-boton--activo,
+.tablero__rango-boton--activo:hover {
+  color: var(--text-invert);
+  background: var(--brand-700);
+}
+
+/* =========================================================
+   Tarjetas de resumen
+========================================================= */
+
+.tablero__tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+.tarjeta {
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-xs);
+}
+
+.tarjeta__etiqueta {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.tarjeta__valor {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text-strong);
+  /* Cifras proporcionales a propósito: tabular acá se ve flojo. */
+  font-variant-numeric: proportional-nums;
+}
+
+/* La única cifra heroica de toda la vista. */
+.tarjeta--heroica .tarjeta__valor {
+  font-size: clamp(3rem, 2rem + 3vw, 3.75rem);
+}
+
+.tarjeta__cambio {
+  margin: var(--sp-3) 0 0;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+/* null no es 0%: es "no hay con qué comparar". */
+.tarjeta__cambio--sin-dato {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.tarjeta__pie {
+  margin: var(--sp-2) 0 0;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+/* =========================================================
+   Bloques
+========================================================= */
+
+.tablero__bloque {
+  margin-bottom: var(--sp-6);
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-xs);
+}
+
+.tablero__subtitulo {
+  margin: 0 0 var(--sp-4);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  color: var(--text-strong);
+}
+
+.tablero__rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+/* =========================================================
+   Gráfico de serie temporal
+========================================================= */
+
+.grafico {
+  margin: 0;
+}
+
+.grafico__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.grafico__leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grafico__leyenda-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* El punto de color es el que identifica la serie; el texto queda en gris. */
+.grafico__punto {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--r-pill);
+}
+
+.grafico__lienzo {
+  position: relative;
+}
+
+.grafico__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.grafico__svg:focus-visible {
+  outline: 2px solid var(--brand-600);
+  outline-offset: 4px;
+  border-radius: var(--r-sm);
+}
+
+.grafico__grilla,
+.grafico__eje {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.grafico__crosshair {
+  stroke: var(--muted);
+  stroke-width: 1;
+}
+
+.grafico__linea {
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Anillo blanco: sin esto, dos marcadores que se cruzan se leen como uno. */
+.grafico__marcador {
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+.grafico__tick-y,
+.grafico__tick-x,
+.grafico__etiqueta-directa {
+  fill: var(--muted);
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+
+.grafico__tick-y {
+  text-anchor: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.grafico__tick-x {
+  text-anchor: middle;
+}
+
+.grafico__etiqueta-directa {
+  fill: var(--text);
+  font-weight: 600;
+}
+
+.grafico__tooltip {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  min-width: 11rem;
+  padding: var(--sp-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-md);
+  pointer-events: none;
+}
+
+.grafico__tooltip--centro { transform: translateX(-50%); }
+.grafico__tooltip--inicio { transform: translateX(0); }
+.grafico__tooltip--fin { transform: translateX(-100%); }
+
+.grafico__tooltip-dia {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.grafico__tooltip-lista {
+  display: grid;
+  gap: var(--sp-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grafico__tooltip-lista li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text);
+}
+
+.grafico__tooltip-lista strong {
+  color: var(--text-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.grafico__tabla-caja {
+  margin-top: var(--sp-5);
+  max-height: 20rem;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.grafico__tabla,
+.recientes__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.grafico__tabla th,
+.grafico__tabla td,
+.recientes__tabla th,
+.recientes__tabla td {
+  padding: var(--sp-2) var(--sp-3);
+  text-align: left;
+  border-bottom: 1px solid var(--line-soft);
+  white-space: nowrap;
+}
+
+.grafico__tabla thead th,
+.recientes__tabla thead th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-sunken);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.grafico__tabla td {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.grafico__tabla tbody th,
+.recientes__tabla tbody th {
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* =========================================================
+   Rankings (barras horizontales, una sola serie)
+========================================================= */
+
+.ranking {
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-xs);
+}
+
+.ranking__titulo {
+  margin: 0 0 var(--sp-4);
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.ranking__lista {
+  display: grid;
+  gap: var(--sp-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ranking__fila {
+  position: relative;
+  /* Aire para que el valor en la punta de la barra nunca quede cortado. */
+  padding-right: 4.5rem;
+  border-radius: var(--r-sm);
+}
+
+.ranking__fila:focus-visible {
+  outline: 2px solid var(--brand-600);
+  outline-offset: 3px;
+}
+
+/* La etiqueta va arriba de la barra y envuelve: nunca se recorta.
+   El margen negativo le devuelve el aire que la fila reserva para el valor:
+   ese espacio lo necesita la barra, no el texto. */
+.ranking__etiqueta {
+  display: block;
+  margin-right: -4.5rem;
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text-strong);
+  overflow-wrap: break-word;
+}
+
+.ranking__pista {
+  position: relative;
+  height: 24px;
+}
+
+.ranking__barra {
+  height: 100%;
+  max-height: 24px;
+  background: var(--brand-600);
+  /* Redondeado en la punta del dato, cuadrado en la base. */
+  border-radius: 0 4px 4px 0;
+  transition: width var(--t-base);
+}
+
+.ranking__valor {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text-strong);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Tooltip de la barra: aparece al pasar el mouse o al enfocar con teclado. */
+.ranking__detalle {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% - var(--sp-1));
+  z-index: 2;
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-eyebrow);
+  color: var(--text-strong);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  box-shadow: var(--sh-md);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--t-fast);
+}
+
+.ranking__fila:hover .ranking__detalle,
+.ranking__fila:focus-visible .ranking__detalle {
+  opacity: 1;
+}
+
+.ranking__pie {
+  margin: var(--sp-4) 0 0;
+  font-size: var(--fs-eyebrow);
+  color: var(--muted);
+}
+
+/* =========================================================
+   Últimas visitas
+========================================================= */
+
+.recientes__caja {
+  max-height: 24rem;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+
+.recientes__cuando {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+
+/* Selector con la misma especificidad que la regla general de tbody th,
+   para no necesitar !important. */
+.recientes__tabla tbody th.recientes__ruta {
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.recientes__sistema {
+  color: var(--muted);
+}
+
+.recientes__pie,
+.tablero__nota {
+  margin: var(--sp-3) 0 0;
+  font-size: var(--fs-eyebrow);
+  color: var(--muted);
+}
+
+/* =========================================================
+   Pie del tablero
+========================================================= */
+
+.tablero__pie {
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--line);
+}
+
+.tablero__opt-out {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.tablero__opt-out input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--brand-600);
+  cursor: pointer;
+}
+
+/* El gráfico no necesita reglas por tamaño: cambia de viewBox según el
+   breakpoint (ver GraficoSerie.jsx), así que la tipografía y los trazos se
+   dibujan siempre al tamaño real que dice el CSS. */
+
+@media (max-width: 36rem) {
+  .tablero__controles {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .ranking__fila {
+    padding-right: 3.75rem;
+  }
+
+  .ranking__etiqueta {
+    margin-right: -3.75rem;
+  }
+}
