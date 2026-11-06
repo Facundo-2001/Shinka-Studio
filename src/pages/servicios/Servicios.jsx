@@ -13,9 +13,9 @@ const servicios = [
     etiqueta: 'Más elegido',
     titulo: 'Landing Pages',
     resumen:
-      'Una página única, clara y persuasiva, diseñada para que el visitante haga una sola cosa: contactarte.',
+      'Una página única, cuidada hasta el último detalle, para que el visitante vea algo serio y quiera contactarte.',
     descripcion:
-      'Las landing pages son ideales para presentar un servicio, lanzar una promoción o acompañar una campaña publicitaria. Trabajamos la jerarquía visual, los textos y los llamados a la acción para que cada visita tenga la mayor probabilidad posible de convertirse en una consulta.',
+      'Las landing pages son ideales para presentar un servicio, lanzar una promoción o acompañar una campaña publicitaria. Trabajamos la jerarquía visual, la tipografía y el color hasta que la página transmita lo que tu negocio realmente vale, y recién después definimos dónde va cada llamado a la acción.',
     imagen: '/images/landingexample.jpg',
     alt: 'Ejemplo de landing page profesional desarrollada por Shinka Studio',
     incluye: [
@@ -31,9 +31,9 @@ const servicios = [
     id: 'ecommerce',
     titulo: 'Tiendas Online',
     resumen:
-      'Un e-commerce completo y escalable para que tu negocio venda todos los días, sin horarios.',
+      'Un e-commerce donde tus productos se ven como merecen, abierto todos los días y a toda hora.',
     descripcion:
-      'Desarrollamos tiendas online con catálogo de productos, carrito de compras, medios de pago y gestión de envíos. Incluimos un panel de administración para que cargues productos, actualices precios y controles tu stock sin depender de nadie.',
+      'Diseñamos la grilla y las fichas de producto para que la foto y el precio se luzcan, y detrás va un e-commerce completo: carrito, medios de pago y gestión de envíos. Incluimos un panel de administración para que cargues productos, actualices precios y controles tu stock sin depender de nadie.',
     imagen: '/images/ecommerceexample.jpg',
     alt: 'Ejemplo de tienda online con carrito de compras desarrollada por Shinka Studio',
     incluye: [
@@ -49,9 +49,9 @@ const servicios = [
     id: 'sistemas',
     titulo: 'Sistemas a Medida',
     resumen:
-      'Software web pensado para tu operación: automatiza tareas, ordena datos y te ahorra horas.',
+      'Software web pensado para tu operación, con una interfaz clara que tu equipo usa sin manual.',
     descripcion:
-      'Construimos aplicaciones web y sistemas de gestión exclusivos para tu empresa. Desde un CRM para seguir clientes hasta portales internos, turnos o reportes: analizamos tus procesos y los convertimos en una herramienta que trabaja para vos.',
+      'Construimos aplicaciones web y sistemas de gestión exclusivos para tu empresa. Desde un CRM para seguir clientes hasta portales internos, turnos o reportes: analizamos tus procesos y los convertimos en una herramienta ordenada, agradable de usar y que trabaja para vos.',
     imagen: '/images/sistemascompletosexample.jpg',
     alt: 'Ejemplo de sistema de gestión web a medida desarrollado por Shinka Studio',
     incluye: [
@@ -94,11 +94,11 @@ export default function Servicios() {
       <section className="page-hero">
         <div className="container page-hero__inner">
           <span className="eyebrow">Servicios</span>
-          <h1>Desarrollo web a medida para tu negocio</h1>
+          <h1>Diseño web a medida para tu negocio</h1>
           <p className="page-hero__lead">
-            Programamos cada proyecto desde cero, sin plantillas. Elegí la solución
-            que necesitás y te enviamos un presupuesto con alcance y plazos en menos
-            de 24 horas hábiles.
+            Diseñamos y programamos cada proyecto desde cero, sin plantillas. Elegí
+            la solución que necesitás y te enviamos un presupuesto con alcance y plazos
+            en menos de 24 horas hábiles.
           </p>
           <div className="page-hero__actions">
             <Boton to="/contacto" variant="accent" size="lg">

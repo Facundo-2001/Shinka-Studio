@@ -1,4 +1,4 @@
-import { FaGraduationCap, FaHandshake, FaCode, FaFlag } from 'react-icons/fa';
+import { FaGraduationCap, FaHandshake, FaPenNib, FaFlag } from 'react-icons/fa';
 import Boton from '../../components/boton/Boton.jsx';
 import Reveal from '../../components/reveal/Reveal.jsx';
 import Seo from '../../seo/Seo.jsx';
@@ -12,7 +12,7 @@ const valores = [
     icono: FaGraduationCap,
     titulo: 'Formación universitaria',
     texto:
-      'Todo el equipo son Técnicos Universitarios en Programación recibidos en la UTN. Eso se nota en código ordenado, seguro y mantenible.',
+      'Todo el equipo son Técnicos Universitarios en Programación recibidos en la UTN. Eso es lo que hace que un diseño cuidado además cargue rápido y no falle.',
   },
   {
     icono: FaHandshake,
@@ -21,10 +21,10 @@ const valores = [
       'Hablás con quien programa tu sitio, no con un intermediario. Respuestas claras, sin tecnicismos innecesarios.',
   },
   {
-    icono: FaCode,
-    titulo: 'Desarrollo a medida',
+    icono: FaPenNib,
+    titulo: 'Diseño a medida',
     texto:
-      'Nada de plantillas recicladas. Cada proyecto se diseña y se programa según lo que tu negocio necesita.',
+      'Nada de plantillas recicladas. Cada proyecto se dibuja desde cero según tu marca y tu rubro.',
   },
   {
     icono: FaFlag,
@@ -35,7 +35,7 @@ const valores = [
 ];
 
 const datos = [
-  { valor: '100%', etiqueta: 'Desarrollo propio, sin plantillas' },
+  { valor: '100%', etiqueta: 'Diseño propio, sin plantillas' },
   { valor: '24 h', etiqueta: 'Para responder tu consulta' },
   { valor: 'UTN', etiqueta: 'Formación técnica del equipo' },
   { valor: 'Todo el país', etiqueta: 'Alcance de nuestro servicio' },
@@ -53,11 +53,11 @@ export default function SobreNosotros() {
       <section className="page-hero">
         <div className="container page-hero__inner">
           <span className="eyebrow">Sobre nosotros</span>
-          <h1>Un equipo técnico que apuesta por la industria nacional</h1>
+          <h1>Un estudio obsesionado con cómo se ve tu negocio</h1>
           <p className="page-hero__lead">
-            Somos Shinka Studio: desarrolladores argentinos que ayudan a pymes,
-            comercios y emprendedores a dar el salto al mundo digital con
-            herramientas serias y bien construidas.
+            Somos Shinka Studio: un equipo argentino que diseña y programa sitios
+            para pymes, comercios y emprendedores que no quieren parecer uno más
+            del montón.
           </p>
         </div>
       </section>
@@ -81,9 +81,9 @@ export default function SobreNosotros() {
               <span className="destacado">
                 Técnicos Universitarios en Programación recibidos en la UTN
               </span>{' '}
-              (Universidad Tecnológica Nacional). Esa formación es la base de todo:
-              nos permite crear soluciones web robustas, seguras y pensadas para
-              durar, no para salir del paso.
+              (Universidad Tecnológica Nacional). Esa formación es la que sostiene el
+              diseño: una web puede verse increíble y aun así andar mal, y nosotros no
+              entregamos ninguna de las dos mitades a medias.
             </p>
 
             <p>

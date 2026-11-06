@@ -1,4 +1,4 @@
-import { FaRocket, FaStore, FaCogs, FaSearch, FaMobileAlt, FaBolt } from 'react-icons/fa';
+import { FaRocket, FaStore, FaCogs, FaPenNib, FaMobileAlt, FaGem } from 'react-icons/fa';
 import Boton from '../../components/boton/Boton.jsx';
 import Carrusel from '../../components/carrusel/Carrusel.jsx';
 import Puntuacion from '../../components/puntuacion/Puntuacion.jsx';
@@ -20,7 +20,7 @@ const servicios = [
     icono: FaRocket,
     titulo: 'Landing Pages',
     texto:
-      'Páginas de una sola vista pensadas para convertir visitas en consultas. Ideales para lanzar un servicio o una campaña.',
+      'Una sola vista, cuidada al detalle, para que la primera impresión alcance. Ideales para presentar un servicio o una campaña.',
     imagen: '/images/landingpage.jpg',
     alt: 'Diseño de landing page optimizada para conversión',
   },
@@ -28,7 +28,7 @@ const servicios = [
     icono: FaStore,
     titulo: 'Tiendas Online',
     texto:
-      'E-commerce completo con carrito, pasarela de pago y gestión de stock para que vendas las 24 horas, todos los días.',
+      'Un catálogo donde tus productos se lucen como merecen, con carrito y pagos online. Vender también es cuestión de cómo se ve.',
     imagen: '/images/ecommerce.png',
     alt: 'Desarrollo de tienda online con carrito y pasarela de pago',
   },
@@ -36,7 +36,7 @@ const servicios = [
     icono: FaCogs,
     titulo: 'Sistemas a Medida',
     texto:
-      'Aplicaciones web y sistemas de gestión que automatizan tus procesos internos y ordenan la operación del negocio.',
+      'Paneles y aplicaciones de gestión con una interfaz clara y agradable de usar, no la típica planilla gris.',
     imagen: '/images/sistemascompletos.png',
     alt: 'Sistema de gestión web a medida para empresas',
   },
@@ -44,26 +44,26 @@ const servicios = [
 
 const diferenciales = [
   {
-    icono: FaSearch,
-    titulo: 'Optimizado para Google',
-    texto: 'Estructura semántica, metadatos y datos estructurados para que tus clientes te encuentren.',
+    icono: FaPenNib,
+    titulo: 'Diseño propio, no plantillas',
+    texto: 'Cada sitio se dibuja desde cero para tu marca. Ningún otro negocio va a tener uno igual al tuyo.',
   },
   {
     icono: FaMobileAlt,
-    titulo: 'Diseño responsive',
-    texto: 'Tu sitio se ve impecable en celular, tablet y escritorio. Más de la mitad del tráfico es móvil.',
+    titulo: 'Impecable en toda pantalla',
+    texto: 'La misma prolijidad en celular, tablet y escritorio. Nada se corre, nada se rompe, nada queda a medias.',
   },
   {
-    icono: FaBolt,
-    titulo: 'Carga veloz',
-    texto: 'Código propio y liviano. Nada de plantillas pesadas que tardan en abrir y espantan visitas.',
+    icono: FaGem,
+    titulo: 'Cuidado en el detalle',
+    texto: 'Tipografía, color y espacios elegidos uno por uno. Y carga veloz, porque una web lenta arruina el mejor diseño.',
   },
 ];
 
 const proceso = [
   { paso: '01', titulo: 'Conversamos', texto: 'Entendemos tu negocio, tus clientes y qué necesitás lograr con el sitio.' },
   { paso: '02', titulo: 'Diseñamos', texto: 'Armamos la propuesta visual y la estructura de contenidos para que la apruebes.' },
-  { paso: '03', titulo: 'Desarrollamos', texto: 'Programamos el sitio a medida, optimizado para buscadores y para celulares.' },
+  { paso: '03', titulo: 'Desarrollamos', texto: 'Programamos el diseño tal cual lo aprobaste, prolijo en cada pantalla.' },
   { paso: '04', titulo: 'Publicamos', texto: 'Lo ponemos online, lo medimos y te acompañamos después del lanzamiento.' },
 ];
 
@@ -174,14 +174,13 @@ export default function Home() {
       <section className="hero">
         <div className="hero__inner container">
           <div className="hero__content">
-            <p className="hero__eyebrow">Desarrollo web en Argentina</p>
+            <p className="hero__eyebrow">Diseño web en Argentina</p>
             <h1 className="hero__title">
-              Diseño y desarrollo web que hace <span>crecer tu negocio</span>
+              La primera impresión de tu negocio, <span>bien hecha</span>.
             </h1>
             <p className="hero__lead">
-              Creamos landing pages, tiendas online y sistemas a medida para pymes,
-              comercios y emprendedores. Sitios rápidos, profesionales y preparados
-              para que tus clientes te encuentren en Google.
+              Creamos webs con diseño propio para que tus clientes confíen en vos
+              antes de escribirte.
             </p>
 
             <div className="hero__actions">
@@ -194,8 +193,8 @@ export default function Home() {
             </div>
 
             <ul className="hero__trust">
+              <li>Diseño propio, sin plantillas</li>
               <li>Presupuesto en 24 h hábiles</li>
-              <li>Equipo de técnicos UTN</li>
               <li>Atendemos todo el país</li>
             </ul>
           </div>
@@ -230,10 +229,10 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Qué ofrecemos</span>
-            <h2>Servicios de desarrollo web a medida</h2>
+            <h2>Diseño y desarrollo web a medida</h2>
             <p className="section-lead">
-              Elegí el tipo de proyecto que necesita tu negocio. Programamos todo a
-              medida: sin plantillas genéricas ni costos ocultos.
+              Elegí el tipo de proyecto que necesita tu negocio. Diseñamos y programamos
+              todo a medida: sin plantillas genéricas ni costos ocultos.
             </p>
           </div>
 
@@ -287,8 +286,8 @@ export default function Home() {
             <span className="eyebrow">Portfolio</span>
             <h2>Quiénes confiaron en nosotros</h2>
             <p className="section-lead">
-              Proyectos reales de negocios argentinos que hoy tienen su presencia
-              digital trabajando para ellos.
+              Proyectos reales de negocios argentinos. Mirá cómo quedaron y
+              juzgá vos mismo.
             </p>
           </div>
 

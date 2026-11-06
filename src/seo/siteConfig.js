@@ -34,7 +34,7 @@ export const pages = {
     path: '/',
     title: 'Shinka Studio | Diseño y Desarrollo Web Profesional en Argentina',
     description:
-      'Agencia argentina de desarrollo web. Creamos landing pages, tiendas online y sistemas a medida para pymes y emprendedores. Sitios rápidos, optimizados para Google y listos para vender.',
+      'Estudio argentino de diseño web. Landing pages, tiendas online y sistemas a medida con diseño propio para pymes y emprendedores. Sitios que generan confianza.',
     priority: '1.0',
     changefreq: 'weekly',
   },

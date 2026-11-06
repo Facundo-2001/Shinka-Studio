@@ -24,8 +24,8 @@ export default function Footer() {
             loading="lazy"
           />
           <p className="footer__tagline">
-            Estudio argentino de diseño y desarrollo web. Convertimos tu negocio en
-            un sitio rápido, profesional y encontrable en Google.
+            Estudio argentino de diseño y desarrollo web. Hacemos que tu negocio se
+            vea tan bien como lo que ofrece.
           </p>
 
           <ul className="footer__social" aria-label="Redes sociales">
