@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# El panel y la API no tienen nada que indexar.
+# Esto habla con los buscadores, no protege: la autorización vive en PHP.
+Disallow: /admin
+Disallow: /api/
+
 Sitemap: https://shinkastudio.dev/sitemap.xml

@@ -120,6 +120,21 @@ generados.push(
   })
 );
 
+/**
+ * Panel de administración. Se escribe acá y NO en `pages` a propósito:
+ * `pages` alimenta el sitemap y el panel no tiene que indexarse. Sin este
+ * archivo, el .htaccess no encuentra admin/index.html y /admin devuelve un
+ * 404 real.
+ */
+generados.push(
+  await writePage({
+    path: '/admin',
+    title: 'Panel | Shinka Studio',
+    description: 'Panel de administración.',
+    noindex: true,
+  })
+);
+
 await writeFile(join(distDir, 'sitemap.xml'), buildSitemap(routes), 'utf-8');
 generados.push('dist/sitemap.xml');
 
