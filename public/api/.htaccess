@@ -1,0 +1,17 @@
+# ---------------------------------------------------------------
+# API de analítica — Shinka Studio
+# ---------------------------------------------------------------
+
+# 1) Nada de esta carpeta se cachea: son respuestas dinámicas.
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header set Pragma "no-cache"
+</IfModule>
+
+# 2) Bloquea el acceso directo a la configuración, el esquema y los backups.
+<FilesMatch "^(config.*\.php|.*\.sql|.*\.md|.*\.log)$">
+  Require all denied
+</FilesMatch>
+
+# 3) El listado de archivos de la carpeta queda desactivado.
+Options -Indexes

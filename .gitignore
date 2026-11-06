@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Credenciales de la base de analítica.
+# La plantilla (public/api/config.example.php) sí se versiona; este archivo no,
+# porque tiene el usuario y la contraseña de MySQL. Se crea una vez por máquina.
+public/api/config.php

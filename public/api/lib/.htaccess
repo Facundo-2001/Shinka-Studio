@@ -1,0 +1,2 @@
+# Código interno: nunca se accede por HTTP, solo por include() desde /api.
+Require all denied
